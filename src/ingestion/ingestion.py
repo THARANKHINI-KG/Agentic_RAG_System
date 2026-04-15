@@ -22,7 +22,7 @@ _TEXT_CHUNK_OVERLAP = 300
 # Embeddings
 # ---------------------------------------------------------------------
 _embeddings_model = GoogleGenerativeAIEmbeddings(
-    model=os.getenv("GOOGLE_EMBEDDING_MODEL"),
+    model=os.getenv("GOOGLE_EMBEDDINGS_MODEL"),
     google_api_key=os.getenv("GOOGLE_API_KEY"),
     output_dimensionality=1536,
 )
