@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from src.api.v1.schemas.query_schema import QueryRequest
 from src.api.v1.services.query_service import query_documents 
@@ -28,12 +27,11 @@ async def upload_endpoint(file: UploadFile = File(...)):
 
         file_path = os.path.join(UPLOAD_DIR, filename)
 
-        # ✅ Save file
+
         with open(file_path, "wb") as f:
             f.write(await file.read())
 
-        # ✅ Call ingestion WITH filename
-        result = run_ingestion(file_path, filename)
+        result = run_ingestion(file_path)
 
         return {
             "status": "success",
